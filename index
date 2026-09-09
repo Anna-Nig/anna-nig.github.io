@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анна Нигматуллина — AI-архитектор</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #222;
+            background: #fafafa;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+        .subhead {
+            font-size: 1.3rem;
+            color: #0055aa;
+            margin-top: 0;
+            font-weight: 500;
+        }
+        .meta {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #0055aa;
+            padding-bottom: 0.2rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 1.8rem;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
+        }
+        .company {
+            font-weight: 600;
+            color: #0055aa;
+        }
+        .date {
+            color: #666;
+            font-weight: normal;
+        }
+        ul {
+            margin-top: 0.3rem;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        .project-tag {
+            display: inline-block;
+            background: #eef4ff;
+            color: #0055aa;
+            padding: 0.1rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 0.4rem;
+        }
+        .github-link {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #222;
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .github-link:hover {
+            background: #444;
+        }
+        .footer {
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #ddd;
+            padding-top: 1rem;
+            text-align: center;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .subhead { font-size: 1.1rem; }
+            body { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Анна Нигматуллина</h1>
+    <div class="subhead">AI-архитектор • ML-инженер</div>
+    <div class="meta">📍 Россия • Диплом Университета Иннополис «Архитектор в области ИИ»</div>
+
+    <h2>Проекты</h2>
+
+    <h3>🔄 Прогнозирование оттока клиентов (Customer Churn)</h3>
+    <div>
+        <span class="project-tag">Дипломный проект</span>
+        <span class="project-tag">ML</span>
+        <span class="project-tag">REST API</span>
+        <span class="project-tag">Docker</span>
+    </div>
+    <p><strong>Архитектура ИИ-системы полного цикла:</strong> ETL-пайплайн → обучение модели → Feature Store → потоковая обработка → REST API.</p>
+    <ul>
+        <li>Спроектирована сквозная архитектура для прогнозирования оттока с использованием классического ML.</li>
+        <li>Реализованы ETL-процессы, потоковая обработка данных и REST API для интеграции с бизнес-системами.</li>
+        <li>Разработана документация архитектуры, приближенная к production-стандартам.</li>
+    </ul>
+    <p>🔗 <a href="https://github.com/Anna-Nig/Customer-Churn-Prediction-ML--" target="_blank">Репозиторий</a></p>
+
+    <h3>⚡ Потоковая аналитика на Kafka</h3>
+    <div>
+        <span class="project-tag">Kafka</span>
+        <span class="project-tag">Real-time</span>
+        <span class="project-tag">ML</span>
+    </div>
+    <p><strong>Система потоковой обработки событий интернет-магазина:</strong> Producer → Kafka → Consumer → аналитика → ML-предсказания → дашборды.</p>
+    <ul>
+        <li>Построен пайплайн для обработки событий в реальном времени с использованием Kafka Streams.</li>
+        <li>Интегрировано ML-предсказание покупок в потоковый конвейер.</li>
+        <li>Настроены дашборды для визуализации аналитики в реальном времени.</li>
+    </ul>
+    <p>🔗 <a href="https://github.com/Anna-Nig/Kafka" target="_blank">Репозиторий</a></p>
+
+    <h3>📊 Анализ финансовых данных (RFSD)</h3>
+    <div>
+        <span class="project-tag">Big Data</span>
+        <span class="project-tag">PyArrow</span>
+        <span class="project-tag">Streaming</span>
+    </div>
+    <p><strong>Анализ большого финансового датасета (554 МБ, 3 млн+ строк):</strong> потоковая загрузка → сокращение данных → статистика → визуализация.</p>
+    <ul>
+        <li>Реализована потоковая загрузка больших данных с использованием HTTP-range запросов.</li>
+        <li>Применены PyArrow и Parquet для эффективной работы с памятью.</li>
+        <li>Проведён исследовательский анализ с визуализацией ключевых метрик.</li>
+    </ul>
+    <p>🔗 <a href="https://github.com/Anna-Nig/rfsd-analysis" target="_blank">Репозиторий</a></p>
+
+    <h2>Ключевые навыки</h2>
+    <ul>
+        <li><strong>Языки и библиотеки:</strong> Python, Pandas, NumPy, Scikit-learn, PyTorch</li>
+        <li><strong>ML & AI:</strong> Классическое ML, прогнозирование, работа с табличными данными</li>
+        <li><strong>Данные и потоки:</strong> Kafka, ETL/ELT, потоковая обработка, PyArrow, Parquet</li>
+        <li><strong>Архитектура:</strong> REST API, Feature Store, микросервисы, Docker</li>
+        <li><strong>Инструменты:</strong> Git, Jupyter, Streamlit (в плане)</li>
+    </ul>
+
+    <h2>Образование</h2>
+    <ul>
+        <li><strong>Университет Иннополис</strong> — Профессиональная переподготовка «Архитектор в области ИИ» (2026)</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;">
+        <a href="https://github.com/Anna-Nig" target="_blank" class="github-link">🐙 GitHub: Anna-Nig</a>
+    </p>
+
+    <div class="footer">
+        © 2026 Анна Нигматуллина · AI-архитектор
+    </div>
+
+</body>
+</html>
