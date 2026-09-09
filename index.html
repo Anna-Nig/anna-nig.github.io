@@ -5,306 +5,461 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анна Нигматуллина — AI-архитектор</title>
     <style>
+        :root {
+            --bg: #0e1116;
+            --bg-soft: #161b23;
+            --card: #161b23;
+            --line: #2a323d;
+            --text: #e8edf5;
+            --muted: #98a4b6;
+            --accent: #4f9cf9;
+            --accent-soft: rgba(79, 156, 249, 0.14);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.55;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .wrap {
             max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #222;
-            background: #fafafa;
+            margin: 0 auto;
+            padding: 28px 20px 70px;
         }
-        .header {
+
+        /* Header */
+        .hero {
+            position: relative;
             display: flex;
+            gap: 28px;
             align-items: center;
-            gap: 30px;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-        .header-left {
-            flex-shrink: 0;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: var(--shadow);
         }
         .avatar {
-            width: 120px;
-            height: 120px;
+            flex: 0 0 auto;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            background: #e0e0e0;
-            border: 3px solid #0055aa;
+            border: 3px solid var(--accent);
+            padding: 3px;
+            background: var(--bg-soft);
         }
-        .header-right {
-            flex: 1;
+        .hero h1 {
+            margin: 0 0 4px;
+            font-size: 28px;
+            letter-spacing: 0.2px;
         }
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.2rem;
-            font-weight: 700;
+        .birth {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 10px;
         }
-        .subhead {
-            font-size: 1.3rem;
-            color: #0055aa;
-            margin-top: 0;
-            font-weight: 500;
-        }
-        .meta {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 0.3rem;
+        .role {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 999px;
+            padding: 6px 14px;
+            margin-bottom: 14px;
         }
         .contacts {
-            font-size: 0.95rem;
-            color: #333;
-            margin-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .contacts a {
-            color: #0055aa;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 7px 12px;
+            background: var(--bg-soft);
+            transition: all 0.2s ease;
         }
         .contacts a:hover {
-            text-decoration: underline;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            margin-top: 38px;
         }
         h2 {
-            font-size: 1.6rem;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 2px solid #0055aa;
-            padding-bottom: 0.2rem;
+            font-size: 20px;
+            margin: 0 0 22px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--line);
         }
-        h3 {
-            font-size: 1.2rem;
-            margin-top: 1.8rem;
-            margin-bottom: 0.2rem;
-            font-weight: 600;
+        h2 span {
+            color: var(--accent);
         }
-        .company {
-            font-weight: 600;
-            color: #0055aa;
+
+        /* Timeline */
+        .tl {
+            position: relative;
+            margin-left: 74px;
         }
-        .date {
-            color: #666;
-            font-weight: normal;
+        .tl::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -18px;
+            bottom: 14px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--line), var(--accent) 12%, var(--line));
         }
-        ul {
-            margin-top: 0.3rem;
-            padding-left: 1.5rem;
+        .item {
+            position: relative;
+            padding: 0 0 26px 26px;
         }
-        li {
-            margin-bottom: 0.3rem;
+        .item:last-child {
+            padding-bottom: 0;
         }
-        .project-tag {
-            display: inline-block;
-            background: #eef4ff;
-            color: #0055aa;
-            padding: 0.1rem 0.7rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
+        .item .dot {
+            position: absolute;
+            left: -7px;
+            top: auto;
+            bottom: 20px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+        .item:last-child .dot {
+            bottom: -6px;
+        }
+        .item .year {
+            position: absolute;
+            left: -74px;
+            top: auto;
+            bottom: 16px;
+            width: 60px;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .item:last-child .year {
+            bottom: -10px;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+        .card .t {
+            font-weight: 650;
+            font-size: 16px;
+        }
+        .card .org {
+            color: var(--accent);
+            font-size: 14px;
+            margin-top: 3px;
+        }
+        .card .desc {
+            font-size: 14px;
+            margin-top: 6px;
+            color: var(--muted);
+        }
+        .card .desc ul {
+            margin: 4px 0 0;
+            padding-left: 20px;
+        }
+        .card .desc li {
+            margin-bottom: 2px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .tags span {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-radius: 999px;
+            padding: 2px 10px;
+            font-size: 12px;
             font-weight: 500;
-            margin-right: 0.4rem;
         }
-        .github-link {
-            display: inline-block;
-            margin-top: 1rem;
-            background: #222;
-            color: #fff;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .github-link:hover {
-            background: #444;
-        }
-        .footer {
-            margin-top: 2.5rem;
-            font-size: 0.9rem;
-            color: #888;
-            border-top: 1px solid #ddd;
-            padding-top: 1rem;
-            text-align: center;
-        }
-        .job-item {
-            margin-bottom: 1.8rem;
-        }
-        .job-item .title {
-            font-weight: 600;
-        }
-        .job-item .company {
-            font-weight: 600;
-            color: #0055aa;
-        }
-        .job-item .period {
-            color: #666;
-            font-weight: normal;
-        }
-        .job-item ul {
-            margin-top: 0.2rem;
-        }
+
         @media (max-width: 600px) {
-            .header {
+            .hero {
                 flex-direction: column;
-                align-items: center;
                 text-align: center;
             }
-            h1 { font-size: 1.8rem; }
-            .subhead { font-size: 1.1rem; }
-            body { padding: 15px; }
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+            .contacts {
+                justify-content: center;
+            }
+            .tl {
+                margin-left: 50px;
+            }
+            .item .year {
+                left: -50px;
+                width: 40px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="header-left">
-            <!-- Замените photo.jpg на имя вашего файла с фото -->
+    <div class="wrap">
+
+        <!-- ===== HEADER ===== -->
+        <header class="hero">
+            <!-- ЗДЕСЬ ВАШЕ ФОТО: замените photo.jpg на имя вашего файла -->
             <img src="photo.jpg" alt="Анна Нигматуллина" class="avatar">
-        </div>
-        <div class="header-right">
-            <h1>Анна Нигматуллина</h1>
-            <div class="subhead">AI-архитектор • ML-инженер</div>
-            <div class="meta">📍 Россия, Столбище • Диплом Университета Иннополис «Архитектор в области ИИ»</div>
-            <div class="contacts">
-                📞 <a href="tel:+79172823992">+7 (917) 282-39-92</a> &nbsp;|&nbsp;
-                ✉️ <a href="mailto:foranya@rambler.ru">foranya@rambler.ru</a> &nbsp;|&nbsp;
-                🐙 <a href="https://github.com/Anna-Nig" target="_blank">GitHub</a>
+            <div>
+                <h1>Анна Нигматуллина</h1>
+                <div class="birth">25.11.1985, Столбище</div>
+                <div class="role">AI-архитектор • ML-инженер</div>
+                <div class="contacts">
+                    <a href="tel:+79172823992">📞 +7 (917) 282-39-92</a>
+                    <a href="mailto:foranya@rambler.ru">✉️ foranya@rambler.ru</a>
+                    <a href="https://github.com/Anna-Nig" target="_blank">🐙 GitHub</a>
+                </div>
             </div>
-        </div>
-    </div>
+        </header>
 
-    <h2>Опыт работы</h2>
+        <!-- ===== ОПЫТ РАБОТЫ ===== -->
+        <section>
+            <h2>Опыт работы</h2>
+            <div class="tl">
 
-    <div class="job-item">
-        <div class="title"><span class="company">SYSTEMAIR</span> — Менеджер по работе с клиентами</div>
-        <div class="period">Февраль 2021 — настоящее время (5 лет 8 месяцев)</div>
-        <ul>
-            <li><strong>Аналитика и сегментация клиентской базы</strong> — выделял группы с наибольшим потенциалом, строил прогнозы спроса на основе исторических данных и сезонности.</li>
-            <li><strong>Управление данными</strong> — вёл базу клиентов в CRM, автоматизировал выгрузки и отчёты, выявлял аномалии и точки роста.</li>
-            <li><strong>Бизнес-метрики</strong> — отвечал за выполнение плана продаж, анализировал отклонения и предлагал корректирующие стратегии.</li>
-            <li><strong>Применение навыков работы с данными</strong> — использовал статистические методы для оценки эффективности каналов продвижения и оптимизации воронки продаж.</li>
-        </ul>
-    </div>
+                <!-- SYSTEMAIR -->
+                <div class="item">
+                    <div class="dot"></div>
+                    <div class="year">2021 — н.в.</div>
+                    <div class="card">
+                        <div class="t">Менеджер по работе с клиентами</div>
+                        <div class="org">SYSTEMAIR</div>
+                        <div class="desc">
+                            <ul>
+                                <li><strong>Аналитика и сегментация клиентской базы</strong> — выделение групп с наибольшим потенциалом, прогнозы спроса.</li>
+                                <li><strong>Управление данными</strong> — ведение базы в CRM, автоматизация выгрузок и отчётов.</li>
+                                <li><strong>Бизнес-метрики</strong> — выполнение плана продаж, анализ отклонений, корректирующие стратегии.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="job-item">
-        <div class="title"><span class="company">ЭТМ, компания</span> — Менеджер по работе с клиентами</div>
-        <div class="period">Июнь 2018 — Февраль 2021 (2 года 9 месяцев)</div>
-        <ul>
-            <li><strong>Работа с проектами</strong> — анализировал техническую документацию и коммерческие предложения, выявлял потребности клиентов на ранних стадиях (реконструкция, новое строительство).</li>
-            <li><strong>Мониторинг и прогнозирование</strong> — отслеживал реализацию проектов, прогнозировал объёмы закупок, строил модели поведения клиентов.</li>
-            <li><strong>Достижения</strong> — обеспечил <strong>кратное увеличение товарооборота</strong> по переданному пулу клиентов за счёт персонализированного подхода и аналитики потребления. Привлёк новых клиентов с ростом оборота на 30%+ в первый год сотрудничества.</li>
-        </ul>
-    </div>
+                <!-- ЭТМ -->
+                <div class="item">
+                    <div class="dot"></div>
+                    <div class="year">2018 — 2021</div>
+                    <div class="card">
+                        <div class="t">Менеджер по работе с клиентами</div>
+                        <div class="org">ЭТМ, компания</div>
+                        <div class="desc">
+                            <ul>
+                                <li><strong>Работа с проектами</strong> — анализ документации, выявление потребностей на ранних стадиях.</li>
+                                <li><strong>Мониторинг и прогнозирование</strong> — отслеживание реализации проектов, прогноз объёмов закупок.</li>
+                                <li><strong>Достижения</strong> — кратное увеличение товарооборота, привлечение новых клиентов с ростом оборота на 30%+.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="job-item">
-        <div class="title"><span class="company">ООО «Протон»</span> — Менеджер по работе с клиентами</div>
-        <div class="period">Октябрь 2015 — Июнь 2018 (2 года 9 месяцев)</div>
-        <ul>
-            <li><strong>Построение базы данных партнёров</strong> — создал структурированную базу с полным профилем контрагентов, используя данные о закупках и сегментацию по регионам.</li>
-            <li><strong>Анализ эффективности</strong> — проводил A/B-тестирование скриптов и подходов к продажам, выявлял лучшие практики.</li>
-            <li><strong>Достижения</strong> — подписал договоры с крупными игроками рынка, увеличив долю компании в сегменте на 15%.</li>
-        </ul>
-    </div>
+                <!-- ООО "Протон" -->
+                <div class="item">
+                    <div class="dot"></div>
+                    <div class="year">2015 — 2018</div>
+                    <div class="card">
+                        <div class="t">Менеджер по работе с клиентами</div>
+                        <div class="org">ООО «Протон»</div>
+                        <div class="desc">
+                            <ul>
+                                <li><strong>Построение базы данных партнёров</strong> — структурированная база с полным профилем контрагентов.</li>
+                                <li><strong>Анализ эффективности</strong> — A/B-тестирование скриптов и подходов к продажам.</li>
+                                <li><strong>Достижения</strong> — подписание договоров с крупными игроками, увеличение доли компании на 15%.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="job-item">
-        <div class="title"><span class="company">OCS distribution</span> — Клиент-менеджер</div>
-        <div class="period">Сентябрь 2010 — Июнь 2015 (4 года 10 месяцев)</div>
-        <ul>
-            <li><strong>Работа с большими данными</strong> — ежедневно взаимодействовал с системой DAX (резервирование, отгрузки, остатки), строил отчёты по продажам, анализировал транзакции.</li>
-            <li><strong>Прогнозирование и планирование</strong> — составлял планы продаж на основе исторических данных, сезонных коэффициентов и рыночных трендов.</li>
-            <li><strong>Управление проектами</strong> — участвовал в реализации крупных интеграционных проектов, анализировал их рентабельность.</li>
-            <li><strong>Достижения</strong> — привлёк новые крупные проекты, составившие &gt;20% оборота компании; внедрил систему отслеживания дебиторской задолженности с использованием Excel-моделей.</li>
-        </ul>
-    </div>
+                <!-- OCS distribution -->
+                <div class="item">
+                    <div class="dot"></div>
+                    <div class="year">2010 — 2015</div>
+                    <div class="card">
+                        <div class="t">Клиент-менеджер</div>
+                        <div class="org">OCS distribution</div>
+                        <div class="desc">
+                            <ul>
+                                <li><strong>Работа с большими данными</strong> — система DAX (резервирование, отгрузки, остатки), построение отчётов.</li>
+                                <li><strong>Прогнозирование и планирование</strong> — планы продаж на основе исторических данных и трендов.</li>
+                                <li><strong>Достижения</strong> — привлечение крупных проектов (&gt;20% оборота), внедрение системы отслеживания дебиторской задолженности.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="job-item">
-        <div class="title"><span class="company">ООО «Электротехника»</span> — Менеджер по работе с клиентами</div>
-        <div class="period">Август 2006 — Май 2007 (10 месяцев)</div>
-        <ul>
-            <li><strong>Анализ каналов сбыта</strong> — оценивал эффективность разных каналов, предлагал оптимизацию ассортимента на основе статистики продаж.</li>
-            <li><strong>Формирование отчётности</strong> — вёл детальную отчётность в Excel, выявлял проблемные зоны.</li>
-        </ul>
-    </div>
+                <!-- ООО "Электротехника" -->
+                <div class="item">
+                    <div class="dot"></div>
+                    <div class="year">2006 — 2007</div>
+                    <div class="card">
+                        <div class="t">Менеджер по работе с клиентами</div>
+                        <div class="org">ООО «Электротехника»</div>
+                        <div class="desc">
+                            <ul>
+                                <li><strong>Анализ каналов сбыта</strong> — оценка эффективности, оптимизация ассортимента на основе статистики продаж.</li>
+                                <li><strong>Формирование отчётности</strong> — ведение детальной отчётности в Excel, выявление проблемных зон.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="job-item">
-        <div class="title"><span class="company">ООО «ТД «Русьимпорт-Казань»</span> — Продавец-консультант</div>
-        <div class="period">Апрель 2004 — Март 2006 (2 года)</div>
-        <ul>
-            <li><strong>Мерчендайзинг и ассортиментная аналитика</strong> — анализировал продажи по SKU, расширял ассортимент на основе данных о спросе.</li>
-        </ul>
-    </div>
+                <!-- ООО "ТД "Русьимпорт-Казань" -->
+                <div class="item">
+                    <div class="dot"></div>
+                    <div class="year">2004 — 2006</div>
+                    <div class="card">
+                        <div class="t">Продавец-консультант</div>
+                        <div class="org">ООО «ТД «Русьимпорт-Казань»</div>
+                        <div class="desc">
+                            <ul>
+                                <li><strong>Мерчендайзинг и ассортиментная аналитика</strong> — анализ продаж по SKU, расширение ассортимента на основе данных о спросе.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <h2>Проекты</h2>
+            </div>
+        </section>
 
-    <h3>🔄 Прогнозирование оттока клиентов (Customer Churn)</h3>
-    <div>
-        <span class="project-tag">Дипломный проект</span>
-        <span class="project-tag">ML</span>
-        <span class="project-tag">REST API</span>
-        <span class="project-tag">Docker</span>
-    </div>
-    <p><strong>Архитектура ИИ-системы полного цикла:</strong> ETL-пайплайн → обучение модели → Feature Store → потоковая обработка → REST API.</p>
-    <ul>
-        <li>Спроектирована сквозная архитектура для прогнозирования оттока с использованием классического ML.</li>
-        <li>Реализованы ETL-процессы, потоковая обработка данных и REST API для интеграции с бизнес-системами.</li>
-        <li>Разработана документация архитектуры, приближенная к production-стандартам.</li>
-    </ul>
-    <p>🔗 <a href="https://github.com/Anna-Nig/Customer-Churn-Prediction-ML--" target="_blank">Репозиторий</a></p>
+        <!-- ===== ПРОЕКТЫ ===== -->
+        <section>
+            <h2>Проекты</h2>
 
-    <h3>⚡ Потоковая аналитика на Kafka</h3>
-    <div>
-        <span class="project-tag">Kafka</span>
-        <span class="project-tag">Real-time</span>
-        <span class="project-tag">ML</span>
-    </div>
-    <p><strong>Система потоковой обработки событий интернет-магазина:</strong> Producer → Kafka → Consumer → аналитика → ML-предсказания → дашборды.</p>
-    <ul>
-        <li>Построен пайплайн для обработки событий в реальном времени с использованием Kafka Streams.</li>
-        <li>Интегрировано ML-предсказание покупок в потоковый конвейер.</li>
-        <li>Настроены дашборды для визуализации аналитики в реальном времени.</li>
-    </ul>
-    <p>🔗 <a href="https://github.com/Anna-Nig/Kafka" target="_blank">Репозиторий</a></p>
+            <div class="item" style="margin-left:0; padding-left:0;">
+                <div class="card" style="margin-bottom:16px;">
+                    <div class="t">🔄 Прогнозирование оттока клиентов (Customer Churn)</div>
+                    <div class="org">Дипломный проект</div>
+                    <div class="tags">
+                        <span>ML</span>
+                        <span>REST API</span>
+                        <span>Docker</span>
+                    </div>
+                    <div class="desc">
+                        <p><strong>Архитектура ИИ-системы полного цикла:</strong> ETL-пайплайн → обучение модели → Feature Store → потоковая обработка → REST API.</p>
+                        <ul>
+                            <li>Спроектирована сквозная архитектура для прогнозирования оттока.</li>
+                            <li>Реализованы ETL-процессы, потоковая обработка и REST API.</li>
+                            <li>Разработана документация, приближенная к production-стандартам.</li>
+                        </ul>
+                        <a href="https://github.com/Anna-Nig/Customer-Churn-Prediction-ML--" target="_blank" style="color:var(--accent);">🔗 Репозиторий</a>
+                    </div>
+                </div>
 
-    <h3>📊 Анализ финансовых данных (RFSD)</h3>
-    <div>
-        <span class="project-tag">Big Data</span>
-        <span class="project-tag">PyArrow</span>
-        <span class="project-tag">Streaming</span>
-    </div>
-    <p><strong>Анализ большого финансового датасета (554 МБ, 3 млн+ строк):</strong> потоковая загрузка → сокращение данных → статистика → визуализация.</p>
-    <ul>
-        <li>Реализована потоковая загрузка больших данных с использованием HTTP-range запросов.</li>
-        <li>Применены PyArrow и Parquet для эффективной работы с памятью.</li>
-        <li>Проведён исследовательский анализ с визуализацией ключевых метрик.</li>
-    </ul>
-    <p>🔗 <a href="https://github.com/Anna-Nig/rfsd-analysis" target="_blank">Репозиторий</a></p>
+                <div class="card" style="margin-bottom:16px;">
+                    <div class="t">⚡ Потоковая аналитика на Kafka</div>
+                    <div class="org">Система потоковой обработки</div>
+                    <div class="tags">
+                        <span>Kafka</span>
+                        <span>Real-time</span>
+                        <span>ML</span>
+                    </div>
+                    <div class="desc">
+                        <p><strong>Потоковая обработка событий интернет-магазина:</strong> Producer → Kafka → Consumer → аналитика → ML-предсказания → дашборды.</p>
+                        <ul>
+                            <li>Построен пайплайн для обработки событий в реальном времени.</li>
+                            <li>Интегрировано ML-предсказание покупок в потоковый конвейер.</li>
+                            <li>Настроены дашборды для визуализации аналитики в реальном времени.</li>
+                        </ul>
+                        <a href="https://github.com/Anna-Nig/Kafka" target="_blank" style="color:var(--accent);">🔗 Репозиторий</a>
+                    </div>
+                </div>
 
-    <h2>Ключевые навыки</h2>
-    <ul>
-        <li><strong>Языки программирования:</strong> Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), SQL (PostgreSQL, PL/pgSQL, MySQL)</li>
-        <li><strong>Машинное обучение:</strong> Линейная/полиномиальная/логистическая регрессия, кластеризация, SVM, Decision Tree, Random Forest, Gradient Boosting, нейронные сети (NLP, LLM, Computer Vision)</li>
-        <li><strong>Инженерия данных:</strong> ETL/ELT-пайплайны, Kafka, Pulsar, OLAP-кубы, витрины данных, модели «Звезда» и «Снежинка», нормализация до 3НФ</li>
-        <li><strong>MLOps и развертывание:</strong> Docker, Docker Compose, Kubernetes, MLFlow, FastAPI, Flask, Git, CI/CD</li>
-        <li><strong>Аналитика и статистика:</strong> A/B-тестирование, построение гипотез, автотестирование, статистический анализ, визуализация</li>
-        <li><strong>Инструменты:</strong> Excel (продвинутый), 1С, MS DAX</li>
-    </ul>
+                <div class="card">
+                    <div class="t">📊 Анализ финансовых данных (RFSD)</div>
+                    <div class="org">Big Data анализ</div>
+                    <div class="tags">
+                        <span>Big Data</span>
+                        <span>PyArrow</span>
+                        <span>Streaming</span>
+                    </div>
+                    <div class="desc">
+                        <p><strong>Анализ большого финансового датасета (554 МБ, 3 млн+ строк):</strong> потоковая загрузка → сокращение данных → статистика → визуализация.</p>
+                        <ul>
+                            <li>Реализована потоковая загрузка больших данных с использованием HTTP-range запросов.</li>
+                            <li>Применены PyArrow и Parquet для эффективной работы с памятью.</li>
+                            <li>Проведён исследовательский анализ с визуализацией ключевых метрик.</li>
+                        </ul>
+                        <a href="https://github.com/Anna-Nig/rfsd-analysis" target="_blank" style="color:var(--accent);">🔗 Репозиторий</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <h2>Образование</h2>
-    <ul>
-        <li><strong>Университет Иннополис</strong> — Профессиональная переподготовка «Архитектор в области ИИ» (2026)</li>
-        <li><strong>Российский государственный торгово-экономический университет, Казань</strong> — Специальность «Менеджмент организации», «Менеджмент торговых предприятий» (2007)</li>
-    </ul>
+        <!-- ===== КЛЮЧЕВЫЕ НАВЫКИ ===== -->
+        <section>
+            <h2>Ключевые навыки</h2>
+            <div class="card">
+                <ul style="margin:0; padding-left:20px; color:var(--muted);">
+                    <li><strong style="color:var(--text);">Языки программирования:</strong> Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), SQL (PostgreSQL, PL/pgSQL, MySQL)</li>
+                    <li><strong style="color:var(--text);">Машинное обучение:</strong> Линейная/полиномиальная/логистическая регрессия, кластеризация, SVM, Decision Tree, Random Forest, Gradient Boosting, нейронные сети (NLP, LLM, Computer Vision)</li>
+                    <li><strong style="color:var(--text);">Инженерия данных:</strong> ETL/ELT-пайплайны, Kafka, Pulsar, OLAP-кубы, витрины данных, модели «Звезда» и «Снежинка», нормализация до 3НФ</li>
+                    <li><strong style="color:var(--text);">MLOps и развертывание:</strong> Docker, Docker Compose, Kubernetes, MLFlow, FastAPI, Flask, Git, CI/CD</li>
+                    <li><strong style="color:var(--text);">Аналитика и статистика:</strong> A/B-тестирование, построение гипотез, автотестирование, статистический анализ, визуализация</li>
+                    <li><strong style="color:var(--text);">Инструменты:</strong> Excel (продвинутый), 1С, MS DAX</li>
+                </ul>
+            </div>
+        </section>
 
-    <h2>Сертификаты</h2>
-    <ul>
-        <li><strong>Английский язык, уровень C1 (Продвинутый)</strong></li>
-    </ul>
+        <!-- ===== ОБРАЗОВАНИЕ ===== -->
+        <section>
+            <h2>Образование</h2>
+            <div class="card" style="margin-bottom:12px;">
+                <div class="t">Профессиональная переподготовка «Архитектор в области ИИ»</div>
+                <div class="org">Университет Иннополис (2026)</div>
+            </div>
+            <div class="card">
+                <div class="t">Специальность «Менеджмент организации», «Менеджмент торговых предприятий»</div>
+                <div class="org">Российский государственный торгово-экономический университет, Казань (2007)</div>
+            </div>
+        </section>
 
-    <p style="margin-top: 1.5rem;">
-        <a href="https://github.com/Anna-Nig" target="_blank" class="github-link">🐙 GitHub: Anna-Nig</a>
-    </p>
+        <!-- ===== СЕРТИФИКАТЫ ===== -->
+        <section>
+            <h2>Сертификаты</h2>
+            <div class="card">
+                <div class="t">Английский язык, уровень C1 (Продвинутый)</div>
+            </div>
+        </section>
 
-    <div class="footer">
-        © 2026 Анна Нигматуллина · AI-архитектор
     </div>
 
 </body>
