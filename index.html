@@ -14,6 +14,29 @@
             color: #222;
             background: #fafafa;
         }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .header-left {
+            flex-shrink: 0;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #e0e0e0;
+            border: 3px solid #0055aa;
+        }
+        .header-right {
+            flex: 1;
+        }
         h1 {
             font-size: 2.2rem;
             margin-bottom: 0.2rem;
@@ -28,9 +51,19 @@
         .meta {
             font-size: 1rem;
             color: #555;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .contacts {
+            font-size: 0.95rem;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+        .contacts a {
+            color: #0055aa;
+            text-decoration: none;
+        }
+        .contacts a:hover {
+            text-decoration: underline;
         }
         h2 {
             font-size: 1.6rem;
@@ -91,7 +124,29 @@
             padding-top: 1rem;
             text-align: center;
         }
+        .job-item {
+            margin-bottom: 1.8rem;
+        }
+        .job-item .title {
+            font-weight: 600;
+        }
+        .job-item .company {
+            font-weight: 600;
+            color: #0055aa;
+        }
+        .job-item .period {
+            color: #666;
+            font-weight: normal;
+        }
+        .job-item ul {
+            margin-top: 0.2rem;
+        }
         @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
             h1 { font-size: 1.8rem; }
             .subhead { font-size: 1.1rem; }
             body { padding: 15px; }
@@ -100,9 +155,83 @@
 </head>
 <body>
 
-    <h1>Анна Нигматуллина</h1>
-    <div class="subhead">AI-архитектор • ML-инженер</div>
-    <div class="meta">📍 Россия • Диплом Университета Иннополис «Архитектор в области ИИ»</div>
+    <div class="header">
+        <div class="header-left">
+            <!-- Замените photo.jpg на имя вашего файла с фото -->
+            <img src="photo.jpg" alt="Анна Нигматуллина" class="avatar">
+        </div>
+        <div class="header-right">
+            <h1>Анна Нигматуллина</h1>
+            <div class="subhead">AI-архитектор • ML-инженер</div>
+            <div class="meta">📍 Россия, Столбище • Диплом Университета Иннополис «Архитектор в области ИИ»</div>
+            <div class="contacts">
+                📞 <a href="tel:+79172823992">+7 (917) 282-39-92</a> &nbsp;|&nbsp;
+                ✉️ <a href="mailto:foranya@rambler.ru">foranya@rambler.ru</a> &nbsp;|&nbsp;
+                🐙 <a href="https://github.com/Anna-Nig" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <h2>Опыт работы</h2>
+
+    <div class="job-item">
+        <div class="title"><span class="company">SYSTEMAIR</span> — Менеджер по работе с клиентами</div>
+        <div class="period">Февраль 2021 — настоящее время (5 лет 8 месяцев)</div>
+        <ul>
+            <li><strong>Аналитика и сегментация клиентской базы</strong> — выделял группы с наибольшим потенциалом, строил прогнозы спроса на основе исторических данных и сезонности.</li>
+            <li><strong>Управление данными</strong> — вёл базу клиентов в CRM, автоматизировал выгрузки и отчёты, выявлял аномалии и точки роста.</li>
+            <li><strong>Бизнес-метрики</strong> — отвечал за выполнение плана продаж, анализировал отклонения и предлагал корректирующие стратегии.</li>
+            <li><strong>Применение навыков работы с данными</strong> — использовал статистические методы для оценки эффективности каналов продвижения и оптимизации воронки продаж.</li>
+        </ul>
+    </div>
+
+    <div class="job-item">
+        <div class="title"><span class="company">ЭТМ, компания</span> — Менеджер по работе с клиентами</div>
+        <div class="period">Июнь 2018 — Февраль 2021 (2 года 9 месяцев)</div>
+        <ul>
+            <li><strong>Работа с проектами</strong> — анализировал техническую документацию и коммерческие предложения, выявлял потребности клиентов на ранних стадиях (реконструкция, новое строительство).</li>
+            <li><strong>Мониторинг и прогнозирование</strong> — отслеживал реализацию проектов, прогнозировал объёмы закупок, строил модели поведения клиентов.</li>
+            <li><strong>Достижения</strong> — обеспечил <strong>кратное увеличение товарооборота</strong> по переданному пулу клиентов за счёт персонализированного подхода и аналитики потребления. Привлёк новых клиентов с ростом оборота на 30%+ в первый год сотрудничества.</li>
+        </ul>
+    </div>
+
+    <div class="job-item">
+        <div class="title"><span class="company">ООО «Протон»</span> — Менеджер по работе с клиентами</div>
+        <div class="period">Октябрь 2015 — Июнь 2018 (2 года 9 месяцев)</div>
+        <ul>
+            <li><strong>Построение базы данных партнёров</strong> — создал структурированную базу с полным профилем контрагентов, используя данные о закупках и сегментацию по регионам.</li>
+            <li><strong>Анализ эффективности</strong> — проводил A/B-тестирование скриптов и подходов к продажам, выявлял лучшие практики.</li>
+            <li><strong>Достижения</strong> — подписал договоры с крупными игроками рынка, увеличив долю компании в сегменте на 15%.</li>
+        </ul>
+    </div>
+
+    <div class="job-item">
+        <div class="title"><span class="company">OCS distribution</span> — Клиент-менеджер</div>
+        <div class="period">Сентябрь 2010 — Июнь 2015 (4 года 10 месяцев)</div>
+        <ul>
+            <li><strong>Работа с большими данными</strong> — ежедневно взаимодействовал с системой DAX (резервирование, отгрузки, остатки), строил отчёты по продажам, анализировал транзакции.</li>
+            <li><strong>Прогнозирование и планирование</strong> — составлял планы продаж на основе исторических данных, сезонных коэффициентов и рыночных трендов.</li>
+            <li><strong>Управление проектами</strong> — участвовал в реализации крупных интеграционных проектов, анализировал их рентабельность.</li>
+            <li><strong>Достижения</strong> — привлёк новые крупные проекты, составившие &gt;20% оборота компании; внедрил систему отслеживания дебиторской задолженности с использованием Excel-моделей.</li>
+        </ul>
+    </div>
+
+    <div class="job-item">
+        <div class="title"><span class="company">ООО «Электротехника»</span> — Менеджер по работе с клиентами</div>
+        <div class="period">Август 2006 — Май 2007 (10 месяцев)</div>
+        <ul>
+            <li><strong>Анализ каналов сбыта</strong> — оценивал эффективность разных каналов, предлагал оптимизацию ассортимента на основе статистики продаж.</li>
+            <li><strong>Формирование отчётности</strong> — вёл детальную отчётность в Excel, выявлял проблемные зоны.</li>
+        </ul>
+    </div>
+
+    <div class="job-item">
+        <div class="title"><span class="company">ООО «ТД «Русьимпорт-Казань»</span> — Продавец-консультант</div>
+        <div class="period">Апрель 2004 — Март 2006 (2 года)</div>
+        <ul>
+            <li><strong>Мерчендайзинг и ассортиментная аналитика</strong> — анализировал продажи по SKU, расширял ассортимент на основе данных о спросе.</li>
+        </ul>
+    </div>
 
     <h2>Проекты</h2>
 
@@ -151,16 +280,23 @@
 
     <h2>Ключевые навыки</h2>
     <ul>
-        <li><strong>Языки и библиотеки:</strong> Python, Pandas, NumPy, Scikit-learn, PyTorch</li>
-        <li><strong>ML & AI:</strong> Классическое ML, прогнозирование, работа с табличными данными</li>
-        <li><strong>Данные и потоки:</strong> Kafka, ETL/ELT, потоковая обработка, PyArrow, Parquet</li>
-        <li><strong>Архитектура:</strong> REST API, Feature Store, микросервисы, Docker</li>
-        <li><strong>Инструменты:</strong> Git, Jupyter, Streamlit (в плане)</li>
+        <li><strong>Языки программирования:</strong> Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), SQL (PostgreSQL, PL/pgSQL, MySQL)</li>
+        <li><strong>Машинное обучение:</strong> Линейная/полиномиальная/логистическая регрессия, кластеризация, SVM, Decision Tree, Random Forest, Gradient Boosting, нейронные сети (NLP, LLM, Computer Vision)</li>
+        <li><strong>Инженерия данных:</strong> ETL/ELT-пайплайны, Kafka, Pulsar, OLAP-кубы, витрины данных, модели «Звезда» и «Снежинка», нормализация до 3НФ</li>
+        <li><strong>MLOps и развертывание:</strong> Docker, Docker Compose, Kubernetes, MLFlow, FastAPI, Flask, Git, CI/CD</li>
+        <li><strong>Аналитика и статистика:</strong> A/B-тестирование, построение гипотез, автотестирование, статистический анализ, визуализация</li>
+        <li><strong>Инструменты:</strong> Excel (продвинутый), 1С, MS DAX</li>
     </ul>
 
     <h2>Образование</h2>
     <ul>
         <li><strong>Университет Иннополис</strong> — Профессиональная переподготовка «Архитектор в области ИИ» (2026)</li>
+        <li><strong>Российский государственный торгово-экономический университет, Казань</strong> — Специальность «Менеджмент организации», «Менеджмент торговых предприятий» (2007)</li>
+    </ul>
+
+    <h2>Сертификаты</h2>
+    <ul>
+        <li><strong>Английский язык, уровень C1 (Продвинутый)</strong></li>
     </ul>
 
     <p style="margin-top: 1.5rem;">
